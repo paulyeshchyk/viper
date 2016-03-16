@@ -40,8 +40,7 @@ class OpenDetailIteractor: NSObject, DetailInteractorProtocol, ListDatasourceLis
     }
     
     func loadDetail(detailId:AnyObject) {
-        
-        
+
         self.listDatasource.findObjectByDetailId(detailId) { (obj) -> () in
         
             guard let object = obj  else {
@@ -51,7 +50,6 @@ class OpenDetailIteractor: NSObject, DetailInteractorProtocol, ListDatasourceLis
             self.listEntity = object
             self.presenter?.refresh()
         }
-        
     }
     
     func save() {
@@ -60,7 +58,6 @@ class OpenDetailIteractor: NSObject, DetailInteractorProtocol, ListDatasourceLis
          
             obj.name = self.listEntity.name
         }
-        
     }
     
     func createNewObject() {

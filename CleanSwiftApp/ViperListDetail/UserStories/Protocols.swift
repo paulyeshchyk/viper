@@ -50,6 +50,7 @@ protocol WireProtocol {
     var wireFrame:WireFrameProtocol {get set}
     var wireType:WireType {get set}
     var input:WireInputProtocol? {get set}
+    var presenter:PresenterProtocol? {get set}
     
     init(type:WireType, wireFrame:WireFrameProtocol)
     

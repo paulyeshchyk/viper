@@ -14,14 +14,7 @@ class LoginInteractor: LoginInteractorProtocol {
     
     func authenticate(username: String, password: String, completion:LoginCompletion) {
         
-//        guard let inp = self.input else {
-//            
-//            return
-//        }
-//        
 
         completion(valid: (username.compare("Lorem") == .OrderedSame))
     }
-    
-    
 }
