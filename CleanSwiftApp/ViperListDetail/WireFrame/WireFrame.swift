@@ -43,13 +43,19 @@ class WireFrame: NSObject, WireFrameProtocol {
         
         wire.run(completionBlock)
     }
+
+    func push(presenter:PresenterProtocol) {
+        
+        appDelegate.findOrCreateNavigationControllerAndPushPresenter(presenter)
+    }
     
-    
-    
-    
-    
-    
-    
-    
-    
+    func pop() {
+        
+        appDelegate.findNavigationControllerPopPresented()
+    }
+
+    func makeRootPresenter(presenter:PresenterProtocol) {
+        
+        appDelegate.setRootPresenter(presenter)
+    }
 }

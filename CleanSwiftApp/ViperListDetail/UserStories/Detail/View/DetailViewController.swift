@@ -26,7 +26,6 @@ class DetailViewController: UIViewController, DetailViewProtocol, UITextFieldDel
     @IBOutlet var nameTextField:UITextField?
     @IBOutlet var idTextField:UITextField?
 
-
     override func viewDidLoad() {
     
         super.viewDidLoad()
@@ -37,11 +36,6 @@ class DetailViewController: UIViewController, DetailViewProtocol, UITextFieldDel
     //MARK: - UITextFieldDelegate
     func textFieldDidEndEditing(textField: UITextField) {
 
-        if textField == self.idTextField {
-            
-            self.presenter?.hasChangedIdentValue(textField.text!)
-        }
-        
         if textField == self.nameTextField {
             
             self.presenter?.hasChangedNameValue(textField.text!)

@@ -74,7 +74,12 @@ class OpenDetailIteractor: NSObject, DetailInteractorProtocol, ListDatasourceLis
     
     func hasUpdatedData() {
     
-        self.presenter?.dataHasBeenSaved()
+        self.presenter?.dataHasBeenUpdated()
+    }
+    
+    func hasCreatedData() {
+        
+        self.presenter?.dataHasBeenCreated()
     }
 
 }

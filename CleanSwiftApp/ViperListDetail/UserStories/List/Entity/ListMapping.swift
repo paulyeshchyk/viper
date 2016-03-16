@@ -16,9 +16,5 @@ class ListMapping: NSObject {
         let ident = detailEntity.ident ?? NSNull()
         
         return ListEntity(id:ident, name:name)
-        
     }
-
-    
-    
 }

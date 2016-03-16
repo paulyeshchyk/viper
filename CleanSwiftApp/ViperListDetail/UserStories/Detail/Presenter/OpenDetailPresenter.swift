@@ -8,12 +8,16 @@
 
 import UIKit
 
+
 class OpenDetailPresenter: NSObject, DetailPresenterProtocol, DetailWireInputProtocol {
 
     var view:DetailViewProtocol?
     var interactor:DetailInteractorProtocol?
-    var wireFrame:WireFrameProtocol
+    var wire:WireProtocol
     var theDetailID:AnyObject?
+    
+    var openRouteCallback:RouteCallback?
+    var updateRouteCallback:RouteCallback?
     
     
     var vc:UIViewController? {
@@ -32,7 +36,13 @@ class OpenDetailPresenter: NSObject, DetailPresenterProtocol, DetailWireInputPro
             return vc
         }
     }
-    
+
+    required init(wire:WireProtocol) {
+        
+        self.wire = wire
+        super.init()
+    }
+
     func saveItem(item:UIBarButtonItem) {
 
         self.interactor?.save()
@@ -43,19 +53,16 @@ class OpenDetailPresenter: NSObject, DetailPresenterProtocol, DetailWireInputPro
         self.interactor?.setName(value)
     }
     
-    func hasChangedIdentValue(value: AnyObject) {
-        
-    }
-    
-    required init(wireFrame:WireFrameProtocol) {
-        
-        self.wireFrame = wireFrame
-        super.init()
-    }
-    
     func doPresent() {
         
-        self.wireFrame.appDelegate.findOrCreateNavigationControllerAndPushPresenter(self)
+        guard let openRoute = self.openRouteCallback else {
+
+            return
+        }
+        
+        openRoute(presenter: self) { (wire:WireProtocol) -> () in
+            
+        }
     }
     
     func refresh() {
@@ -64,9 +71,20 @@ class OpenDetailPresenter: NSObject, DetailPresenterProtocol, DetailWireInputPro
         
     }
     
-    func dataHasBeenSaved() {
+    func dataHasBeenUpdated() {
+
+        guard let updateRouteCallback = self.updateRouteCallback else {
+            
+            return
+        }
+        updateRouteCallback(presenter: self){ (wire:WireProtocol) -> () in
+            
+        }
+    }
+    
+    func dataHasBeenCreated() {
         
-        self.wireFrame.appDelegate.findNavigationControllerPopPresented()
+
     }
     
     //MARK: - DetailWireInputProtocol

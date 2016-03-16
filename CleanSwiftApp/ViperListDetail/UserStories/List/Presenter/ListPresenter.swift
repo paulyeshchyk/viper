@@ -10,7 +10,10 @@ import UIKit
 
 class ListPresenter:NSObject, ListPresenterProtocol, WireInputProtocol {
 
-    var wireFrame:WireFrameProtocol
+    var openListRoute:RouteCallback?
+    var openDetailRoute:RouteCallback?
+    var addItemRoute:RouteCallback?
+    var wire:WireProtocol
     var view:ListViewProtocol?
     var interactor:ListInteractorProtocol?
     var vc:UIViewController? {
@@ -33,24 +36,35 @@ class ListPresenter:NSObject, ListPresenterProtocol, WireInputProtocol {
         }
     }
 
-    required init(wireFrame:WireFrameProtocol) {
+    required init(wire:WireProtocol) {
         
-        self.wireFrame = wireFrame
+        self.wire = wire
         super.init()
     }
     
     func doPresent() {
         
+        guard let openListRoute = self.openListRoute else {
+            
+            return
+        }
         
-        self.wireFrame.appDelegate.setRootPresenter(self)
+        openListRoute(presenter: self) { (wire:WireProtocol) -> () in
+            
+            self.interactor?.needNewData()
+        }
         self.interactor?.needNewData()
     }
     
     func addItem(item:UIBarButtonItem) {
         
-        self.wireFrame.run(.AddDetailWire, completionBlock: { (wire) -> () in
+        guard let addItemRoute = self.addItemRoute else {
             
-        })
+            return
+        }
+        
+        addItemRoute(presenter: self){ (wire:WireProtocol) -> () in
+        }
     }
     
     func numberOfDetails() -> Int {
@@ -76,28 +90,33 @@ class ListPresenter:NSObject, ListPresenterProtocol, WireInputProtocol {
     
     func openDetailAtIndex(index: Int) {
         
-        self.wireFrame.run(.OpenDetailWire, completionBlock: {(wire:WireProtocol) in
+        
+        guard let openDetailRoute = self.openDetailRoute else {
             
+            return
+        }
+        
+        openDetailRoute(presenter: self) { (wire:WireProtocol) -> () in
+
             guard let output = self.interactor else {
-                
+
                 return
             }
-            
+
             guard let input = wire.input as? DetailWireInputProtocol else {
-                
+
                 return
             }
-            
+
             do {
-                
+
                 let entity = try output.entityAtIndex(index)
                 input.setDetailID(entity.id)
                 
             } catch {
                 
             }
-            
-        })
+        }
     }
     
     //MARK: ListPresenterProtocol

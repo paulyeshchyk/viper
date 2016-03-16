@@ -9,6 +9,7 @@
 protocol ListDatasourceListenerProtocol {
     
     func hasUpdatedData()
+    func hasCreatedData()
 }
 
 typealias ListDataSourceFindObjectCallback = (obj:ListEntity?) ->()

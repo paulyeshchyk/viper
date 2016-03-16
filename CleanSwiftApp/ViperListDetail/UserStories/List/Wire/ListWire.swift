@@ -10,17 +10,21 @@ import UIKit
 
 class ListWire: NSObject, WireProtocol {
 
-    
-    var wireFrame:WireFrameProtocol
     var wireType:WireType
-    var presenter:PresenterProtocol
-    var input:WireInputProtocol
+    var wireFrame:WireFrameProtocol
+    var presenter:PresenterProtocol?
+    var input:WireInputProtocol?
     
     required init(type:WireType, wireFrame:WireFrameProtocol) {
 
+        self.wireType = type
+        self.wireFrame = wireFrame
+
+        super.init()
+        
         let interactor = ListInteractor()
         
-        let presenter = ListPresenter(wireFrame: wireFrame)
+        let presenter = ListPresenter(wire: self)
         
         let vc = ListViewController(nibName:"ListViewController", bundle: NSBundle.mainBundle())
         vc.presenter = presenter
@@ -29,24 +33,31 @@ class ListWire: NSObject, WireProtocol {
         
         interactor.presenter = presenter
         
-        self.wireType = type
-        self.wireFrame = wireFrame
         self.presenter = presenter
         self.input = presenter
         
-        super.init()
-//        self.presenter.wire = self
+        presenter.openListRoute = {(presenter, routeResultCallback) in
+            
+            self.wireFrame.makeRootPresenter(presenter)
+        }
+        
+        presenter.addItemRoute = {(presenter, routeResultCallback) in
+
+            self.wireFrame.run(.AddDetailWire, completionBlock: routeResultCallback)
+        }
+        
+        presenter.openDetailRoute = {(presenter, routeResultCallback) in
+            
+            self.wireFrame.run(.OpenDetailWire, completionBlock:routeResultCallback)
+        }
+
     }
     
     func run(completionBlock:WireOpenCompletionBlock) {
 
-        presenter.doPresent()
+        presenter?.doPresent()
 
         completionBlock(wire:self)
-    }
-    
-    func done() {
-        
     }
     
 }

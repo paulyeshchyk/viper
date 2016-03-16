@@ -8,11 +8,14 @@
 
 import UIKit
 
+
 class AddDetailPresenter: NSObject, DetailPresenterProtocol, DetailWireInputProtocol {
 
     var view:DetailViewProtocol?
     var interactor:DetailInteractorProtocol?
-    var wireFrame:WireFrameProtocol
+    var wire:WireProtocol
+    var openRouteCallback:RouteCallback?
+    var saveRouteCallback:RouteCallback?
     
     var vc:UIViewController? {
         
@@ -29,28 +32,28 @@ class AddDetailPresenter: NSObject, DetailPresenterProtocol, DetailWireInputProt
             return vc
         }
     }
+    
+    required init(wire:WireProtocol) {
+        
+        self.wire = wire
+        super.init()
+    }
 
     func saveItem(item:UIBarButtonItem) {
 
         self.interactor?.createNewObject()
     }
     
-    required init(wireFrame:WireFrameProtocol) {
-        
-        self.wireFrame = wireFrame
-        super.init()
-    }
-    
     func doPresent() {
         
-        self.wireFrame.appDelegate.findOrCreateNavigationControllerAndPushPresenter(self)
-    }
-    
-    
-    func hasChangedIdentValue(value: AnyObject) {
-    
-        self.interactor?.setIdent(value)
-    
+        guard let openRoute = self.openRouteCallback else {
+            
+            return
+        }
+
+        openRoute(presenter: self){ (wire:WireProtocol) -> () in
+            
+        }
     }
     
     func hasChangedNameValue(value: String) {
@@ -61,10 +64,21 @@ class AddDetailPresenter: NSObject, DetailPresenterProtocol, DetailWireInputProt
     func refresh() {
         
     }
-    
-    func dataHasBeenSaved() {
 
-        self.wireFrame.appDelegate.findNavigationControllerPopPresented()
+    func dataHasBeenUpdated() {
+    
+    }
+    
+    func dataHasBeenCreated() {
+
+        guard let saveRouteCallback = self.saveRouteCallback else {
+
+            return
+        }
+        
+        saveRouteCallback(presenter: self) { (wire:WireProtocol) -> () in
+            
+        }
     }
     
     //MARK: - DetailWireInputProtocol

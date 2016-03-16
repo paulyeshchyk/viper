@@ -46,4 +46,8 @@ class ListInteractor: ListInteractorProtocol, ListDatasourceListenerProtocol {
         self.presenter?.refresh()
         
     }
+    
+    func hasCreatedData() {
+        
+    }
 }

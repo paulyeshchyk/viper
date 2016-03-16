@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		1D056B451C96EC19009A1D7E /* WireTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D056B441C96EC19009A1D7E /* WireTypes.swift */; };
 		1D6966D91C96D354003E5E3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6966D81C96D354003E5E3B /* AppDelegate.swift */; };
-		1D6966DB1C96D354003E5E3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6966DA1C96D354003E5E3B /* ViewController.swift */; };
-		1D6966DE1C96D354003E5E3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D6966DC1C96D354003E5E3B /* Main.storyboard */; };
 		1D6966E01C96D354003E5E3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D6966DF1C96D354003E5E3B /* Assets.xcassets */; };
 		1D6966E31C96D354003E5E3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D6966E11C96D354003E5E3B /* LaunchScreen.storyboard */; };
 		1D6966EE1C96D355003E5E3B /* ViperListDetailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6966ED1C96D355003E5E3B /* ViperListDetailTests.swift */; };
@@ -50,6 +48,7 @@
 		1DD107151C983BBB00146E91 /* AddDetailWire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD107141C983BBB00146E91 /* AddDetailWire.swift */; };
 		1DD107171C983C9B00146E91 /* AddDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD107161C983C9B00146E91 /* AddDetailPresenter.swift */; };
 		1DD1071B1C9848BE00146E91 /* NSManagedObject+CoreDataOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD1071A1C9848BE00146E91 /* NSManagedObject+CoreDataOperations.m */; };
+		1DD1075A1C9971D600146E91 /* AppDelegate+Windows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD107591C9971D600146E91 /* AppDelegate+Windows.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,8 +72,6 @@
 		1D056B441C96EC19009A1D7E /* WireTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WireTypes.swift; sourceTree = "<group>"; };
 		1D6966D51C96D354003E5E3B /* ViperListDetail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViperListDetail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D6966D81C96D354003E5E3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1D6966DA1C96D354003E5E3B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1D6966DD1C96D354003E5E3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1D6966DF1C96D354003E5E3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D6966E21C96D354003E5E3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D6966E41C96D354003E5E3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -126,6 +123,7 @@
 		1DD107161C983C9B00146E91 /* AddDetailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDetailPresenter.swift; sourceTree = "<group>"; };
 		1DD107191C9848BE00146E91 /* NSManagedObject+CoreDataOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+CoreDataOperations.h"; sourceTree = "<group>"; };
 		1DD1071A1C9848BE00146E91 /* NSManagedObject+CoreDataOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+CoreDataOperations.m"; sourceTree = "<group>"; };
+		1DD107591C9971D600146E91 /* AppDelegate+Windows.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Windows.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,8 +178,7 @@
 				1D6967191C96D91F003E5E3B /* UserStories */,
 				1D6967061C96D3A4003E5E3B /* WireFrame */,
 				1D6966D81C96D354003E5E3B /* AppDelegate.swift */,
-				1D6966DA1C96D354003E5E3B /* ViewController.swift */,
-				1D6966DC1C96D354003E5E3B /* Main.storyboard */,
+				1DD107591C9971D600146E91 /* AppDelegate+Windows.swift */,
 				1D6966E11C96D354003E5E3B /* LaunchScreen.storyboard */,
 				1D6966DF1C96D354003E5E3B /* Assets.xcassets */,
 				1D6966E41C96D354003E5E3B /* Info.plist */,
@@ -573,7 +570,6 @@
 				1D6966E31C96D354003E5E3B /* LaunchScreen.storyboard in Resources */,
 				1DD106DB1C97065300146E91 /* ListViewController.xib in Resources */,
 				1D6966E01C96D354003E5E3B /* Assets.xcassets in Resources */,
-				1D6966DE1C96D354003E5E3B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,6 +615,7 @@
 				1DD106F51C98117F00146E91 /* DetailProtocol.swift in Sources */,
 				1DD106F21C98111900146E91 /* DetailViewController.swift in Sources */,
 				1D6967261C96D91F003E5E3B /* LoginInteractor.swift in Sources */,
+				1DD1075A1C9971D600146E91 /* AppDelegate+Windows.swift in Sources */,
 				1DD106D91C97064900146E91 /* ListViewController.swift in Sources */,
 				1D69672F1C96E2BE003E5E3B /* Errors.swift in Sources */,
 				1DD107101C982BDE00146E91 /* ListMapping.swift in Sources */,
@@ -626,7 +623,6 @@
 				1DD106E01C97FB5300146E91 /* ListEntity.swift in Sources */,
 				1DD107011C981C2500146E91 /* NSThread+ExecutionOnMain.m in Sources */,
 				1DD1070B1C981E8C00146E91 /* DetailEntity+CoreDataProperties.m in Sources */,
-				1D6966DB1C96D354003E5E3B /* ViewController.swift in Sources */,
 				1DD106D31C97055D00146E91 /* ListPresenter.swift in Sources */,
 				1DD106D71C97058500146E91 /* ListWire.swift in Sources */,
 				1D6966D91C96D354003E5E3B /* AppDelegate.swift in Sources */,
@@ -667,14 +663,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1D6966DC1C96D354003E5E3B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1D6966DD1C96D354003E5E3B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1D6966E11C96D354003E5E3B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

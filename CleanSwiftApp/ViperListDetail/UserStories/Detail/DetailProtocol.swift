@@ -13,9 +13,9 @@ protocol DetailPresenterProtocol:PresenterProtocol {
     var view:DetailViewProtocol? {get set}
     var interactor:DetailInteractorProtocol? {get set}
     
-    func hasChangedIdentValue(value:AnyObject)
     func hasChangedNameValue(value:String)
-    func dataHasBeenSaved()
+    func dataHasBeenCreated()
+    func dataHasBeenUpdated()
     func refresh()
 }
 

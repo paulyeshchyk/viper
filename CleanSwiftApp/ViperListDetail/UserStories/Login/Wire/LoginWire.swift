@@ -12,45 +12,45 @@ class LoginWire:NSObject, WireProtocol {
 
     var wireType:WireType
     var wireFrame:WireFrameProtocol
-    var presenter:PresenterProtocol
-    var isAuthenticated:Bool = false
-    var input:WireInputProtocol
+    var presenter:PresenterProtocol?
+    var input:WireInputProtocol?
     
     required init(type: WireType, wireFrame: WireFrameProtocol) {
 
+
+        self.wireType = type
+        self.wireFrame = wireFrame
+
+        super.init()
+        
         let interactor = LoginInteractor()
 
-        let presenter = LoginPresenter(wireFrame: wireFrame)
+        let presenter = LoginPresenter(wire: self)
         let vc = LoginViewController(nibName:"LoginViewController", bundle: NSBundle.mainBundle())
         vc.presenter = presenter
         presenter.view = vc
         presenter.interactor = interactor
-        
-        
-        self.wireType = type
-        self.wireFrame = wireFrame
+
         self.presenter = presenter
         self.input = presenter
+
+        presenter.openRouteCallback = {(presenter, routeResultCallback) in
+
+            self.wireFrame.push(presenter)
+        }
         
-        super.init()
-//        self.presenter.wire = self
-    }
-    
-    deinit {
-        
-//        self.presenter.wire = nil
+        presenter.authSuccessRouteCallback = {(presenter, routeResultCallback) in
+
+            self.wireFrame.run(.ListWire, completionBlock: routeResultCallback)
+        }
+        presenter.authFailRouteCallback = {(presenter, routeResultCallback) in
+            
+        }
     }
     
     func run(completionBlock:WireOpenCompletionBlock) {
      
-        presenter.doPresent()
+        presenter?.doPresent()
         completionBlock(wire:self)
     }
-    
-    func done() {
-        
-        
-        
-    }
-    
 }

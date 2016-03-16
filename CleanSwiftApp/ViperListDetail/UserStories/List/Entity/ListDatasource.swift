@@ -23,7 +23,7 @@ class ListDatasource: NSObject, ListDatasourceProtocol, NSFetchedResultsControll
         
         let context = CoreDataProvider.sharedInstance().mainManagedObjectContext
         let request = NSFetchRequest(entityName: "DetailEntity")
-        request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        request.sortDescriptors = [NSSortDescriptor(key: "ident", ascending: true)]
 
         self.fetchResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil);
         
@@ -89,10 +89,12 @@ class ListDatasource: NSObject, ListDatasourceProtocol, NSFetchedResultsControll
             callback(obj: object)
 
             if (context.hasChanges) {
+                
                 do {
                     
                     try context.save()
-                }catch {
+                    
+                } catch {
                     
                 }
             }
@@ -101,7 +103,7 @@ class ListDatasource: NSObject, ListDatasourceProtocol, NSFetchedResultsControll
                 return
             }
             
-            listener.hasUpdatedData()
+            listener.hasCreatedData()
         }
     }
     
@@ -136,22 +138,8 @@ class ListDatasource: NSObject, ListDatasourceProtocol, NSFetchedResultsControll
             
             listener.hasUpdatedData()
         }
-        
-        
-        
-//        let predicate = NSPredicate(format: "ident == %@", argumentArray: [detailId])
-//        let context = CoreDataProvider.sharedInstance().mainManagedObjectContext
-//        guard let detail = DetailEntity.singleObjectWithPredicate(predicate, inManagedObjectContext: context, includingSubentities: false) as DetailEntity? else {
-//            
-//            return
-//        }
-//        
-//        let result = ListMapping.listEntityFromDetailEntity(detail)
-//        callback(obj: result)
-        
     }
-    
-    
+
     func findObjectByDetailId(detailId:AnyObject, callback:ListDataSourceFindObjectCallback) {
 
         let predicate = NSPredicate(format: "ident == %@", argumentArray: [detailId])

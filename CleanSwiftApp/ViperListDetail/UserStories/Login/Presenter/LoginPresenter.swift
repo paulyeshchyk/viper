@@ -12,7 +12,11 @@ class LoginPresenter: NSObject, LoginPresenterProtocol, WireInputProtocol {
 
     var view:LoginViewProtocol?
     var interactor:LoginInteractorProtocol?
-    var wireFrame:WireFrameProtocol
+    var wire:WireProtocol
+    var openRouteCallback:RouteCallback?
+    var authSuccessRouteCallback:RouteCallback?
+    var authFailRouteCallback:RouteCallback?
+    
     var vc:UIViewController? {
         
         get {
@@ -23,15 +27,22 @@ class LoginPresenter: NSObject, LoginPresenterProtocol, WireInputProtocol {
         }
     }
     
-    required init(wireFrame:WireFrameProtocol) {
+    required init(wire:WireProtocol) {
     
-        self.wireFrame = wireFrame
+        self.wire = wire
         super.init()
     }
     
     func doPresent() {
         
-        self.wireFrame.appDelegate.findOrCreateNavigationControllerAndPushPresenter(self)
+        guard let routeCallback = self.openRouteCallback else {
+            
+            return
+        }
+        
+        routeCallback(presenter: self) { (wire:WireProtocol) -> () in
+            
+        }
     }
     
     func cancelLogin() {
@@ -58,8 +69,14 @@ class LoginPresenter: NSObject, LoginPresenterProtocol, WireInputProtocol {
         
         out.authenticate(name, password: pass, completion: {(valid:Bool) in
           
-            self.wireFrame.run(.ListWire, completionBlock: {(wire:WireProtocol) in
+            guard let callback = valid ? self.authSuccessRouteCallback : self.authFailRouteCallback else {
+                
+                return
+            }
+            callback(presenter: self, callback: { (wire:WireProtocol) -> () in
+                
             })
+            
         })
     }
     

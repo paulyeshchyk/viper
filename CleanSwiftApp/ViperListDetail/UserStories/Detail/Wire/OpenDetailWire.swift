@@ -10,17 +10,20 @@ import UIKit
 
 class OpenDetailWire: NSObject, WireProtocol {
 
-    var wireFrame:WireFrameProtocol
     var wireType:WireType
-    var presenter:PresenterProtocol
-    var input:WireInputProtocol
-
+    var wireFrame:WireFrameProtocol
+    var presenter:PresenterProtocol?
+    var input:WireInputProtocol?
     
     required init(type:WireType, wireFrame:WireFrameProtocol) {
 
+        self.wireType = type
+        self.wireFrame = wireFrame
+        super.init()
+
         let interactor = OpenDetailIteractor()
         
-        let presenter = OpenDetailPresenter(wireFrame: wireFrame)
+        let presenter = OpenDetailPresenter(wire: self)
         
         let vc = DetailViewController(nibName:"DetailViewController", bundle: NSBundle.mainBundle())
         vc.presenter = presenter
@@ -28,24 +31,24 @@ class OpenDetailWire: NSObject, WireProtocol {
         presenter.interactor = interactor
         interactor.presenter = presenter
 
-        self.wireType = type
-        self.wireFrame = wireFrame
         self.presenter = presenter
         self.input = presenter
 
-        super.init()
 
-//        self.presenter.wire = self
+        presenter.openRouteCallback = {(presenter,routeResultCallback) in
+            
+            self.wireFrame.push(presenter)
+        }
+        presenter.updateRouteCallback = {(presenter, routeResultCallback) in
+
+            self.wireFrame.pop()
+        }
     }
     
     func run(completionBlock:WireOpenCompletionBlock) {
         
-        presenter.doPresent()
+        presenter?.doPresent()
         
         completionBlock(wire:self)
-    }
-    
-    func done() {
-        
     }
 }

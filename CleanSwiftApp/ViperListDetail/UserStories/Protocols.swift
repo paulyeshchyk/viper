@@ -8,6 +8,11 @@
 
 import UIKit
 
+typealias RouteResultCallback = (wire:WireProtocol)->()
+typealias RouteCallback = (presenter:PresenterProtocol, callback:RouteResultCallback) -> ()
+typealias WireOpenCompletionBlock = (wire:WireProtocol) -> ()
+
+
 protocol TheAppProtocol {
     
     func setRootPresenter(presenter:PresenterProtocol)
@@ -30,8 +35,8 @@ protocol WireInputProtocol {
 
 protocol PresenterProtocol {
     
-    init(wireFrame:WireFrameProtocol)
-    var wireFrame:WireFrameProtocol {get set}
+    init(wire:WireProtocol)
+    var wire:WireProtocol {get set}
     var vc:UIViewController? {get}
     func doPresent()
 }
@@ -40,25 +45,24 @@ protocol InteractorProtocol {
     
 }
 
-typealias WireOpenCompletionBlock = (wire:WireProtocol) -> ()
-
 protocol WireProtocol {
     
     var wireFrame:WireFrameProtocol {get set}
     var wireType:WireType {get set}
-    var input:WireInputProtocol {get set}
+    var input:WireInputProtocol? {get set}
     
     init(type:WireType, wireFrame:WireFrameProtocol)
     
     func run(completionBlock:WireOpenCompletionBlock)
-    func done()
 }
-
 
 protocol WireFrameProtocol {
  
-    var appDelegate:TheAppProtocol {get set}
     init(app:TheAppProtocol)
     
     func run(type:WireType, completionBlock:WireOpenCompletionBlock)
+    
+    func push(presenter:PresenterProtocol)
+    func pop()
+    func makeRootPresenter(presenter:PresenterProtocol)
 }
