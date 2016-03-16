@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListViewController" customModule="ViperListDetail" customModuleProvider="target">
+            <connections>
+                <outlet property="tableView" destination="cuR-Tv-HSF" id="g5y-5M-c6K"/>
+                <outlet property="view" destination="iN0-l3-epB" id="Zbi-fj-f02"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="272" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cuR-Tv-HSF">
+                    <rect key="frame" x="0.0" y="0.0" width="272" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="WJs-VS-bpm"/>
+                        <outlet property="delegate" destination="-1" id="fTY-O8-Rsi"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="cuR-Tv-HSF" secondAttribute="trailing" id="37K-kc-ACg"/>
+                <constraint firstItem="cuR-Tv-HSF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="FdC-PS-lZL"/>
+                <constraint firstItem="cuR-Tv-HSF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="WV4-qR-8Kb"/>
+                <constraint firstAttribute="bottom" secondItem="cuR-Tv-HSF" secondAttribute="bottom" id="nUP-Q2-8br"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="216" y="366"/>
+        </view>
+    </objects>
+</document>
