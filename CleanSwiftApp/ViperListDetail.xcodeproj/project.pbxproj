@@ -15,7 +15,7 @@
 		1D6966E31C96D354003E5E3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D6966E11C96D354003E5E3B /* LaunchScreen.storyboard */; };
 		1D6966EE1C96D355003E5E3B /* ViperListDetailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6966ED1C96D355003E5E3B /* ViperListDetailTests.swift */; };
 		1D6966F91C96D355003E5E3B /* ViperListDetailUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6966F81C96D355003E5E3B /* ViperListDetailUITests.swift */; };
-		1D6967261C96D91F003E5E3B /* LoginIteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D69671E1C96D91F003E5E3B /* LoginIteractor.swift */; };
+		1D6967261C96D91F003E5E3B /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D69671E1C96D91F003E5E3B /* LoginInteractor.swift */; };
 		1D6967271C96D91F003E5E3B /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6967201C96D91F003E5E3B /* LoginPresenter.swift */; };
 		1D6967291C96D91F003E5E3B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6967241C96D91F003E5E3B /* LoginViewController.swift */; };
 		1D69672A1C96D91F003E5E3B /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D6967251C96D91F003E5E3B /* LoginViewController.xib */; };
@@ -24,7 +24,7 @@
 		1D6967311C96E5A6003E5E3B /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6967301C96E5A6003E5E3B /* Protocols.swift */; };
 		1D6967341C96E7A2003E5E3B /* LoginWire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6967331C96E7A2003E5E3B /* LoginWire.swift */; };
 		1D6967361C96E858003E5E3B /* WireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6967351C96E858003E5E3B /* WireFrame.swift */; };
-		1DD106D11C97055000146E91 /* ListIteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD106D01C97055000146E91 /* ListIteractor.swift */; };
+		1DD106D11C97055000146E91 /* ListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD106D01C97055000146E91 /* ListInteractor.swift */; };
 		1DD106D31C97055D00146E91 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD106D21C97055D00146E91 /* ListPresenter.swift */; };
 		1DD106D71C97058500146E91 /* ListWire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD106D61C97058500146E91 /* ListWire.swift */; };
 		1DD106D91C97064900146E91 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD106D81C97064900146E91 /* ListViewController.swift */; };
@@ -34,7 +34,7 @@
 		1DD106E31C97FC5F00146E91 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD106E11C97FC5F00146E91 /* ListTableViewCell.swift */; };
 		1DD106E41C97FC5F00146E91 /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DD106E21C97FC5F00146E91 /* ListTableViewCell.xib */; };
 		1DD106EB1C9805B800146E91 /* OpenDetailWire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD106EA1C9805B800146E91 /* OpenDetailWire.swift */; };
-		1DD106ED1C9810E300146E91 /* OpenDetailIteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD106EC1C9810E300146E91 /* OpenDetailIteractor.swift */; };
+		1DD106ED1C9810E300146E91 /* OpenDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD106EC1C9810E300146E91 /* OpenDetailInteractor.swift */; };
 		1DD106EF1C9810FB00146E91 /* OpenDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD106EE1C9810FB00146E91 /* OpenDetailPresenter.swift */; };
 		1DD106F21C98111900146E91 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD106F01C98111900146E91 /* DetailViewController.swift */; };
 		1DD106F31C98111900146E91 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DD106F11C98111900146E91 /* DetailViewController.xib */; };
@@ -84,7 +84,7 @@
 		1D6966F41C96D355003E5E3B /* ViperListDetailUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ViperListDetailUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D6966F81C96D355003E5E3B /* ViperListDetailUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViperListDetailUITests.swift; sourceTree = "<group>"; };
 		1D6966FA1C96D355003E5E3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1D69671E1C96D91F003E5E3B /* LoginIteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginIteractor.swift; sourceTree = "<group>"; };
+		1D69671E1C96D91F003E5E3B /* LoginInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		1D6967201C96D91F003E5E3B /* LoginPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		1D6967241C96D91F003E5E3B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1D6967251C96D91F003E5E3B /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 		1D6967301C96E5A6003E5E3B /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		1D6967331C96E7A2003E5E3B /* LoginWire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginWire.swift; sourceTree = "<group>"; };
 		1D6967351C96E858003E5E3B /* WireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WireFrame.swift; sourceTree = "<group>"; };
-		1DD106D01C97055000146E91 /* ListIteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListIteractor.swift; sourceTree = "<group>"; };
+		1DD106D01C97055000146E91 /* ListInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListInteractor.swift; sourceTree = "<group>"; };
 		1DD106D21C97055D00146E91 /* ListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
 		1DD106D61C97058500146E91 /* ListWire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListWire.swift; sourceTree = "<group>"; };
 		1DD106D81C97064900146E91 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 		1DD106E11C97FC5F00146E91 /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		1DD106E21C97FC5F00146E91 /* ListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
 		1DD106EA1C9805B800146E91 /* OpenDetailWire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenDetailWire.swift; sourceTree = "<group>"; };
-		1DD106EC1C9810E300146E91 /* OpenDetailIteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenDetailIteractor.swift; sourceTree = "<group>"; };
+		1DD106EC1C9810E300146E91 /* OpenDetailInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenDetailInteractor.swift; sourceTree = "<group>"; };
 		1DD106EE1C9810FB00146E91 /* OpenDetailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenDetailPresenter.swift; sourceTree = "<group>"; };
 		1DD106F01C98111900146E91 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		1DD106F11C98111900146E91 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
@@ -268,7 +268,7 @@
 		1D69671D1C96D91F003E5E3B /* Iteractor */ = {
 			isa = PBXGroup;
 			children = (
-				1D69671E1C96D91F003E5E3B /* LoginIteractor.swift */,
+				1D69671E1C96D91F003E5E3B /* LoginInteractor.swift */,
 			);
 			path = Iteractor;
 			sourceTree = "<group>";
@@ -313,7 +313,7 @@
 		1DD106CC1C97053A00146E91 /* Iteractor */ = {
 			isa = PBXGroup;
 			children = (
-				1DD106D01C97055000146E91 /* ListIteractor.swift */,
+				1DD106D01C97055000146E91 /* ListInteractor.swift */,
 			);
 			path = Iteractor;
 			sourceTree = "<group>";
@@ -365,7 +365,7 @@
 		1DD106E61C9805A500146E91 /* Iteractor */ = {
 			isa = PBXGroup;
 			children = (
-				1DD106EC1C9810E300146E91 /* OpenDetailIteractor.swift */,
+				1DD106EC1C9810E300146E91 /* OpenDetailInteractor.swift */,
 			);
 			path = Iteractor;
 			sourceTree = "<group>";
@@ -614,11 +614,11 @@
 				1DD106EB1C9805B800146E91 /* OpenDetailWire.swift in Sources */,
 				1D056B451C96EC19009A1D7E /* WireTypes.swift in Sources */,
 				1DD1070E1C982B3800146E91 /* ListDatasource.swift in Sources */,
-				1DD106ED1C9810E300146E91 /* OpenDetailIteractor.swift in Sources */,
+				1DD106ED1C9810E300146E91 /* OpenDetailInteractor.swift in Sources */,
 				1D6967311C96E5A6003E5E3B /* Protocols.swift in Sources */,
 				1DD106F51C98117F00146E91 /* DetailProtocol.swift in Sources */,
 				1DD106F21C98111900146E91 /* DetailViewController.swift in Sources */,
-				1D6967261C96D91F003E5E3B /* LoginIteractor.swift in Sources */,
+				1D6967261C96D91F003E5E3B /* LoginInteractor.swift in Sources */,
 				1DD106D91C97064900146E91 /* ListViewController.swift in Sources */,
 				1D69672F1C96E2BE003E5E3B /* Errors.swift in Sources */,
 				1DD107101C982BDE00146E91 /* ListMapping.swift in Sources */,
@@ -630,7 +630,7 @@
 				1DD106D31C97055D00146E91 /* ListPresenter.swift in Sources */,
 				1DD106D71C97058500146E91 /* ListWire.swift in Sources */,
 				1D6966D91C96D354003E5E3B /* AppDelegate.swift in Sources */,
-				1DD106D11C97055000146E91 /* ListIteractor.swift in Sources */,
+				1DD106D11C97055000146E91 /* ListInteractor.swift in Sources */,
 				1DD106DD1C9706AD00146E91 /* ListProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

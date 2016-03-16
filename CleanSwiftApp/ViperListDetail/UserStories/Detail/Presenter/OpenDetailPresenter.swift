@@ -11,9 +11,11 @@ import UIKit
 class OpenDetailPresenter: NSObject, DetailPresenterProtocol, DetailWireInputProtocol {
 
     var view:DetailViewProtocol?
-    var output:DetailIteratorProtocol?
+    var interactor:DetailInteractorProtocol?
     var wire:WireProtocol?
     var theApp:TheAppProtocol
+    var theDetailID:AnyObject?
+    
     
     var vc:UIViewController? {
         
@@ -25,8 +27,8 @@ class OpenDetailPresenter: NSObject, DetailPresenterProtocol, DetailWireInputPro
                 return nil
             }
             
-//            let addButton = UIBarButtonItem(title: "Save", style: .Plain, target: self, action: "saveItem:")
-//            vc.navigationItem.setRightBarButtonItems([addButton], animated: false)
+            let addButton = UIBarButtonItem(title: "Save", style: .Plain, target: self, action: "saveItem:")
+            vc.navigationItem.setRightBarButtonItems([addButton], animated: false)
 
             return vc
         }
@@ -34,11 +36,12 @@ class OpenDetailPresenter: NSObject, DetailPresenterProtocol, DetailWireInputPro
     
     func saveItem(item:UIBarButtonItem) {
 
-//        self.output?.save()
+        self.interactor?.save()
     }
 
     func hasChangedNameValue(value: String) {
         
+        self.interactor?.setName(value)
     }
     
     func hasChangedIdentValue(value: AnyObject) {
@@ -58,7 +61,7 @@ class OpenDetailPresenter: NSObject, DetailPresenterProtocol, DetailWireInputPro
     
     func refresh() {
         
-        self.view?.nameValue = output!.listEntity.name
+        self.view?.nameValue = self.interactor?.listEntity.name
         
     }
     
@@ -70,7 +73,9 @@ class OpenDetailPresenter: NSObject, DetailPresenterProtocol, DetailWireInputPro
     //MARK: - DetailWireInputProtocol
     func setDetailID(detailID: AnyObject) {
         
-        self.output?.loadDetail(detailID)
+        theDetailID = detailID
+        
+        self.interactor?.loadDetail(detailID)
     }
     
 }

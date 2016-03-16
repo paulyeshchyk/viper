@@ -13,7 +13,7 @@ typealias LoginCompletion = (valid:Bool) -> Void
 protocol LoginPresenterProtocol:PresenterProtocol {
     
     var view:LoginViewProtocol? {get set}
-    var output:LoginIteractorProtocol? {get set}
+    var interactor:LoginInteractorProtocol? {get set}
 
     func cancelLogin()
     func performLogin() throws
@@ -27,7 +27,7 @@ protocol LoginViewProtocol:ViewProtocol {
     var password:String? {get set}
 }
 
-protocol LoginIteractorProtocol:IteratorProtocol {
+protocol LoginInteractorProtocol:InteractorProtocol {
     
     var input:LoginPresenterProtocol? {get set}
     

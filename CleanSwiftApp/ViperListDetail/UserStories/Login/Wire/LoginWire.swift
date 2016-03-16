@@ -18,13 +18,13 @@ class LoginWire:NSObject, WireProtocol {
     
     required init(type: WireType, wireFrame: WireFrameProtocol) {
 
-        let loginIteractor = LoginIteractor()
+        let interactor = LoginInteractor()
 
         let presenter = LoginPresenter(theApp: wireFrame.appDelegate)
         let vc = LoginViewController(nibName:"LoginViewController", bundle: NSBundle.mainBundle())
         vc.presenter = presenter
         presenter.view = vc
-        presenter.output = loginIteractor
+        presenter.interactor = interactor
         
         
         self.wireType = type

@@ -20,15 +20,15 @@ class AddDetailWire: NSObject, WireProtocol {
     
     required init(type:WireType, wireFrame:WireFrameProtocol) {
         
-        let iteractor = OpenDetailIteractor()
+        let interactor = OpenDetailIteractor()
         
         let presenter = AddDetailPresenter(theApp:wireFrame.appDelegate)
         
         let vc = DetailViewController(nibName:"DetailViewController", bundle: NSBundle.mainBundle())
         vc.presenter = presenter
         presenter.view = vc
-        presenter.output = iteractor
-        iteractor.presenter = presenter
+        presenter.interactor = interactor
+        interactor.presenter = presenter
 
         self.wireType = type
         self.wireFrame = wireFrame

@@ -11,7 +11,7 @@ import Foundation
 protocol DetailPresenterProtocol:PresenterProtocol {
     
     var view:DetailViewProtocol? {get set}
-    var output:DetailIteratorProtocol? {get set}
+    var interactor:DetailInteractorProtocol? {get set}
     
     func hasChangedIdentValue(value:AnyObject)
     func hasChangedNameValue(value:String)
@@ -25,7 +25,7 @@ protocol DetailViewProtocol:ViewProtocol {
     
 }
 
-protocol DetailIteratorProtocol:IteratorProtocol {
+protocol DetailInteractorProtocol:InteractorProtocol {
  
     var presenter:DetailPresenterProtocol? {get set}
 
@@ -36,6 +36,7 @@ protocol DetailIteratorProtocol:IteratorProtocol {
 
     var listEntity:ListEntity{get set}
     
+    func createNewObject()
     func save()
 }
 

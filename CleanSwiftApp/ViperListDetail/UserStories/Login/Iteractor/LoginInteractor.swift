@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginIteractor: LoginIteractorProtocol {
+class LoginInteractor: LoginInteractorProtocol {
 
     var input:LoginPresenterProtocol?
     

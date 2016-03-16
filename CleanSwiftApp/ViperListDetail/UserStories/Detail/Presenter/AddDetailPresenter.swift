@@ -11,7 +11,8 @@ import UIKit
 class AddDetailPresenter: NSObject, DetailPresenterProtocol, DetailWireInputProtocol {
 
     var view:DetailViewProtocol?
-    var output:DetailIteratorProtocol?
+    var interactor:DetailInteractorProtocol?
+    
     var wire:WireProtocol?
     var theApp:TheAppProtocol
     
@@ -24,9 +25,8 @@ class AddDetailPresenter: NSObject, DetailPresenterProtocol, DetailWireInputProt
                 print ("view not found")
                 return nil
             }
-            let addButton = UIBarButtonItem(title: "Save", style: .Plain, target: self, action: "saveItem:")
             
-//            let result = UINavigationController(rootViewController: vc)
+            let addButton = UIBarButtonItem(title: "Save", style: .Plain, target: self, action: "saveItem:")
             vc.navigationItem.setRightBarButtonItems([addButton], animated: false)
             return vc
         }
@@ -34,7 +34,7 @@ class AddDetailPresenter: NSObject, DetailPresenterProtocol, DetailWireInputProt
 
     func saveItem(item:UIBarButtonItem) {
 
-        self.output?.save()
+        self.interactor?.createNewObject()
     }
     
     required init(theApp: TheAppProtocol) {
@@ -51,13 +51,13 @@ class AddDetailPresenter: NSObject, DetailPresenterProtocol, DetailWireInputProt
     
     func hasChangedIdentValue(value: AnyObject) {
     
-        self.output?.setIdent(value)
+        self.interactor?.setIdent(value)
     
     }
     
     func hasChangedNameValue(value: String) {
         
-        self.output?.setName(value)
+        self.interactor?.setName(value)
     }
     
     func refresh() {

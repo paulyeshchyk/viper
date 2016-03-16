@@ -6,7 +6,7 @@
 //  Copyright © 2016 NoName. All rights reserved.
 //
 
-class ListIteractor: ListIteractorProtocol, ListDatasourceListenerProtocol {
+class ListInteractor: ListInteractorProtocol, ListDatasourceListenerProtocol {
 
     var presenter:ListPresenterProtocol?
     var dataSource:ListDatasource

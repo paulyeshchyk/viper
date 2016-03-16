@@ -36,7 +36,7 @@ protocol PresenterProtocol {
     func doPresent()
 }
 
-protocol IteratorProtocol {
+protocol InteractorProtocol {
     
 }
 

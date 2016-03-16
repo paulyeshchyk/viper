@@ -105,6 +105,52 @@ class ListDatasource: NSObject, ListDatasourceProtocol, NSFetchedResultsControll
         }
     }
     
+
+    func saveObjectByDetailId(detailId:AnyObject, callback:ListDatasourceSaveObjectCallback) {
+        
+        
+        let context = CoreDataProvider.sharedInstance().mainManagedObjectContext
+        
+        context.performBlock { () -> Void in
+            
+            let predicate = NSPredicate(format: "ident == %@", argumentArray: [detailId])
+            let context = CoreDataProvider.sharedInstance().mainManagedObjectContext
+            guard let object = DetailEntity.singleObjectWithPredicate(predicate, inManagedObjectContext: context, includingSubentities: false) as DetailEntity? else {
+
+                return
+            }
+            callback(obj: object)
+            
+            if (context.hasChanges) {
+                do {
+                    
+                    try context.save()
+                }catch {
+                    
+                }
+            }
+            guard let listener = self.listener else {
+                
+                return
+            }
+            
+            listener.hasUpdatedData()
+        }
+        
+        
+        
+//        let predicate = NSPredicate(format: "ident == %@", argumentArray: [detailId])
+//        let context = CoreDataProvider.sharedInstance().mainManagedObjectContext
+//        guard let detail = DetailEntity.singleObjectWithPredicate(predicate, inManagedObjectContext: context, includingSubentities: false) as DetailEntity? else {
+//            
+//            return
+//        }
+//        
+//        let result = ListMapping.listEntityFromDetailEntity(detail)
+//        callback(obj: result)
+        
+    }
+    
     
     func findObjectByDetailId(detailId:AnyObject, callback:ListDataSourceFindObjectCallback) {
 

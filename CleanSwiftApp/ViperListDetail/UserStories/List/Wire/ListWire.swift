@@ -18,16 +18,16 @@ class ListWire: NSObject, WireProtocol {
     
     required init(type:WireType, wireFrame:WireFrameProtocol) {
 
-        let iteractor = ListIteractor()
+        let interactor = ListInteractor()
         
         let presenter = ListPresenter(theApp:wireFrame.appDelegate)
         
         let vc = ListViewController(nibName:"ListViewController", bundle: NSBundle.mainBundle())
         vc.presenter = presenter
         presenter.view = vc
-        presenter.output = iteractor
+        presenter.interactor = interactor
         
-        iteractor.presenter = presenter
+        interactor.presenter = presenter
         
         self.wireType = type
         self.wireFrame = wireFrame

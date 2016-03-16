@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OpenDetailIteractor: NSObject, DetailIteratorProtocol, ListDatasourceListenerProtocol {
+class OpenDetailIteractor: NSObject, DetailInteractorProtocol, ListDatasourceListenerProtocol {
 
     var presenter:DetailPresenterProtocol?
     var listEntity:ListEntity
@@ -56,20 +56,25 @@ class OpenDetailIteractor: NSObject, DetailIteratorProtocol, ListDatasourceListe
     
     func save() {
 
+        listDatasource.saveObjectByDetailId(self.listEntity.id) { (obj:DetailEntity) -> () in
+         
+            obj.name = self.listEntity.name
+        }
+        
+    }
+    
+    func createNewObject() {
+
         listDatasource.createNewObject { (obj:DetailEntity) -> () in
 
             obj.name = self.listEntity.name
             obj.ident = String(format: "%f", arguments: [NSDate.timeIntervalSinceReferenceDate()])
-            
         }
-        
     }
     
     func hasUpdatedData() {
     
         self.presenter?.dataHasBeenSaved()
-        
     }
 
-    
 }

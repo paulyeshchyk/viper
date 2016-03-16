@@ -7,11 +7,12 @@
 //
 
 import UIKit
+
 class ListPresenter:NSObject, ListPresenterProtocol, WireInputProtocol {
 
     var theApp:TheAppProtocol
     var view:ListViewProtocol?
-    var output:ListIteractorProtocol?
+    var interactor:ListInteractorProtocol?
     var wire:WireProtocol?
     var vc:UIViewController? {
         
@@ -42,7 +43,7 @@ class ListPresenter:NSObject, ListPresenterProtocol, WireInputProtocol {
     func doPresent() {
         
         theApp.setRootPresenter(self)
-        self.output?.needNewData()
+        self.interactor?.needNewData()
     }
     
     func addItem(item:UIBarButtonItem) {
@@ -54,7 +55,7 @@ class ListPresenter:NSObject, ListPresenterProtocol, WireInputProtocol {
     
     func numberOfDetails() -> Int {
 
-        guard let output = self.output else {
+        guard let output = self.interactor else {
             
             return 0
         }
@@ -64,7 +65,7 @@ class ListPresenter:NSObject, ListPresenterProtocol, WireInputProtocol {
     
     func detailAtIndex(index: Int) throws -> ListEntity? {
         
-        guard let output = self.output else {
+        guard let output = self.interactor else {
             
             throw PresenterError.DetailNotFound
         }
@@ -77,7 +78,7 @@ class ListPresenter:NSObject, ListPresenterProtocol, WireInputProtocol {
         
         self.wire?.wireFrame.run(.OpenDetailWire, completionBlock: {(wire:WireProtocol) in
             
-            guard let output = self.output else {
+            guard let output = self.interactor else {
                 
                 return
             }

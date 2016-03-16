@@ -13,6 +13,8 @@ protocol ListDatasourceListenerProtocol {
 
 typealias ListDataSourceFindObjectCallback = (obj:ListEntity?) ->()
 typealias ListDatasourceCreateNewObjectCallback = (obj:DetailEntity)->()
+typealias ListDatasourceSaveObjectCallback = (obj:DetailEntity)->()
+
 protocol ListDatasourceProtocol {
     
     var listener:ListDatasourceListenerProtocol? {get set}
@@ -22,12 +24,13 @@ protocol ListDatasourceProtocol {
     func reload()
     func createNewObject(callback:ListDatasourceCreateNewObjectCallback)
     func findObjectByDetailId(detailId:AnyObject, callback:ListDataSourceFindObjectCallback)
+    func saveObjectByDetailId(detailId:AnyObject, callback:ListDatasourceSaveObjectCallback)
 }
 
 protocol ListPresenterProtocol:PresenterProtocol {
     
     var view:ListViewProtocol? {get set}
-    var output:ListIteractorProtocol? {get set}
+    var interactor:ListInteractorProtocol? {get set}
     
     func refresh()
     func numberOfDetails() -> Int
@@ -43,7 +46,7 @@ protocol ListViewProtocol:ViewProtocol {
     
 }
 
-protocol ListIteractorProtocol:IteratorProtocol {
+protocol ListInteractorProtocol:InteractorProtocol {
     
     var presenter:ListPresenterProtocol? {get set}
 

@@ -11,7 +11,7 @@ import UIKit
 class LoginPresenter: NSObject, LoginPresenterProtocol, WireInputProtocol {
 
     var view:LoginViewProtocol?
-    var output:LoginIteractorProtocol?
+    var interactor:LoginInteractorProtocol?
     var wire:WireProtocol?
     var theApp:TheAppProtocol
     
@@ -52,7 +52,7 @@ class LoginPresenter: NSObject, LoginPresenterProtocol, WireInputProtocol {
             throw LoginError.EmptyPassword
         }
         
-        guard let out = self.output else {
+        guard let out = self.interactor else {
             
             throw LoginError.NoIteractor
         }
