@@ -30,8 +30,8 @@ protocol WireInputProtocol {
 
 protocol PresenterProtocol {
     
-    init(theApp:TheAppProtocol)
-    var wire:WireProtocol? {get set}
+    init(wireFrame:WireFrameProtocol)
+    var wireFrame:WireFrameProtocol {get set}
     var vc:UIViewController? {get}
     func doPresent()
 }

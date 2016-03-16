@@ -15,14 +15,14 @@ class AddDetailWire: NSObject, WireProtocol {
     
     deinit {
     
-        self.presenter.wire = nil
+//        self.presenter.wire = nil
     }
     
     required init(type:WireType, wireFrame:WireFrameProtocol) {
         
         let interactor = OpenDetailIteractor()
         
-        let presenter = AddDetailPresenter(theApp:wireFrame.appDelegate)
+        let presenter = AddDetailPresenter(wireFrame: wireFrame)
         
         let vc = DetailViewController(nibName:"DetailViewController", bundle: NSBundle.mainBundle())
         vc.presenter = presenter
@@ -37,7 +37,7 @@ class AddDetailWire: NSObject, WireProtocol {
         
         super.init()
         
-        self.presenter.wire = self
+//        self.presenter.wire = self
     }
     
     func run(completionBlock:WireOpenCompletionBlock) {

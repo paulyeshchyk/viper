@@ -12,8 +12,7 @@ class OpenDetailPresenter: NSObject, DetailPresenterProtocol, DetailWireInputPro
 
     var view:DetailViewProtocol?
     var interactor:DetailInteractorProtocol?
-    var wire:WireProtocol?
-    var theApp:TheAppProtocol
+    var wireFrame:WireFrameProtocol
     var theDetailID:AnyObject?
     
     
@@ -48,15 +47,15 @@ class OpenDetailPresenter: NSObject, DetailPresenterProtocol, DetailWireInputPro
         
     }
     
-    required init(theApp: TheAppProtocol) {
+    required init(wireFrame:WireFrameProtocol) {
         
-        self.theApp = theApp
+        self.wireFrame = wireFrame
         super.init()
     }
     
     func doPresent() {
         
-        theApp.findOrCreateNavigationControllerAndPushPresenter(self)
+        self.wireFrame.appDelegate.findOrCreateNavigationControllerAndPushPresenter(self)
     }
     
     func refresh() {
@@ -67,7 +66,7 @@ class OpenDetailPresenter: NSObject, DetailPresenterProtocol, DetailWireInputPro
     
     func dataHasBeenSaved() {
         
-        theApp.findNavigationControllerPopPresented()
+        self.wireFrame.appDelegate.findNavigationControllerPopPresented()
     }
     
     //MARK: - DetailWireInputProtocol

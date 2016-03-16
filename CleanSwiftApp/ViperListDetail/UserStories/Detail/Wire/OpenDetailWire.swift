@@ -20,7 +20,7 @@ class OpenDetailWire: NSObject, WireProtocol {
 
         let interactor = OpenDetailIteractor()
         
-        let presenter = OpenDetailPresenter(theApp:wireFrame.appDelegate)
+        let presenter = OpenDetailPresenter(wireFrame: wireFrame)
         
         let vc = DetailViewController(nibName:"DetailViewController", bundle: NSBundle.mainBundle())
         vc.presenter = presenter
@@ -35,7 +35,7 @@ class OpenDetailWire: NSObject, WireProtocol {
 
         super.init()
 
-        self.presenter.wire = self
+//        self.presenter.wire = self
     }
     
     func run(completionBlock:WireOpenCompletionBlock) {

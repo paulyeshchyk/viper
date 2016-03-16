@@ -12,9 +12,7 @@ class LoginPresenter: NSObject, LoginPresenterProtocol, WireInputProtocol {
 
     var view:LoginViewProtocol?
     var interactor:LoginInteractorProtocol?
-    var wire:WireProtocol?
-    var theApp:TheAppProtocol
-    
+    var wireFrame:WireFrameProtocol
     var vc:UIViewController? {
         
         get {
@@ -25,15 +23,15 @@ class LoginPresenter: NSObject, LoginPresenterProtocol, WireInputProtocol {
         }
     }
     
-    required init(theApp: TheAppProtocol) {
+    required init(wireFrame:WireFrameProtocol) {
     
-        self.theApp = theApp
+        self.wireFrame = wireFrame
         super.init()
     }
     
     func doPresent() {
         
-        theApp.findOrCreateNavigationControllerAndPushPresenter(self)
+        self.wireFrame.appDelegate.findOrCreateNavigationControllerAndPushPresenter(self)
     }
     
     func cancelLogin() {
@@ -60,14 +58,8 @@ class LoginPresenter: NSObject, LoginPresenterProtocol, WireInputProtocol {
         
         out.authenticate(name, password: pass, completion: {(valid:Bool) in
           
-            guard let wire = self.wire as? LoginWire else {
-                
-                return
-            }
-            
-            wire.isAuthenticated = valid
-            
-            wire.done()
+            self.wireFrame.run(.ListWire, completionBlock: {(wire:WireProtocol) in
+            })
         })
     }
     

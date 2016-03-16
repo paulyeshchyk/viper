@@ -20,7 +20,7 @@ class LoginWire:NSObject, WireProtocol {
 
         let interactor = LoginInteractor()
 
-        let presenter = LoginPresenter(theApp: wireFrame.appDelegate)
+        let presenter = LoginPresenter(wireFrame: wireFrame)
         let vc = LoginViewController(nibName:"LoginViewController", bundle: NSBundle.mainBundle())
         vc.presenter = presenter
         presenter.view = vc
@@ -33,12 +33,12 @@ class LoginWire:NSObject, WireProtocol {
         self.input = presenter
         
         super.init()
-        self.presenter.wire = self
+//        self.presenter.wire = self
     }
     
     deinit {
         
-        self.presenter.wire = nil
+//        self.presenter.wire = nil
     }
     
     func run(completionBlock:WireOpenCompletionBlock) {
@@ -50,11 +50,6 @@ class LoginWire:NSObject, WireProtocol {
     func done() {
         
         
-        if self.isAuthenticated {
-            
-            self.wireFrame.run(.ListWire, completionBlock: {(wire:WireProtocol) in
-            })
-        }
         
     }
     

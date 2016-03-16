@@ -20,7 +20,7 @@ class ListWire: NSObject, WireProtocol {
 
         let interactor = ListInteractor()
         
-        let presenter = ListPresenter(theApp:wireFrame.appDelegate)
+        let presenter = ListPresenter(wireFrame: wireFrame)
         
         let vc = ListViewController(nibName:"ListViewController", bundle: NSBundle.mainBundle())
         vc.presenter = presenter
@@ -35,7 +35,7 @@ class ListWire: NSObject, WireProtocol {
         self.input = presenter
         
         super.init()
-        self.presenter.wire = self
+//        self.presenter.wire = self
     }
     
     func run(completionBlock:WireOpenCompletionBlock) {
